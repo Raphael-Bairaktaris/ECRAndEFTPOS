@@ -1,0 +1,2189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ECRAndEFTPOS.Common</name>
+    </assembly>
+    <members>
+        <member name="T:ECRAndEFTPOS.Common.TerminalAPIArgs">
+            <summary>
+            Arguments used for retrieving terminals
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalAPIArgs.Limit">
+            <summary>
+            The limit
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalAPIArgs.Offset">
+            <summary>
+            The offset
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TerminalAPIArgs.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionAPIArgs">
+            <summary>
+            Arguments used for retrieving transactions
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionAPIArgs.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionIntentAPIArgs">
+            <summary>
+            Arguments used for retrieving a transaction intents
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionIntentAPIArgs.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.AccessTokenRequestModel">
+            <summary>
+            Requests used for accessing a token
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.AccessTokenRequestModel.Username">
+            <summary>
+            The username
+            </summary>
+            <example>test_username</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.AccessTokenRequestModel.Password">
+            <summary>
+            The password
+            </summary>
+            <example>test_password</example>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.AccessTokenRequestModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.BaseProviderDataRequestModel">
+            <summary>
+            The base for all the provider's data
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseProviderDataRequestModel.UId">
+            <summary>
+            The UId of the invoice
+            </summary>
+            <example>D4F6A5F5C6123658F78369E5191ED5C9D73CB7AC</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseProviderDataRequestModel.Mark">
+            <summary>
+            The mark
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseProviderDataRequestModel.SignatureTimestamp">
+            <summary>
+            The generation timestamp of Provider Signature in ISO-8601 format
+            Timezone information should be provided otherwise UTC is assumed
+            </summary>
+            <example>2023-11-13T14:00+02:00</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseProviderDataRequestModel.TaxAmount">
+            <summary>
+            The price of goods without any VAT applies to it
+            </summary>
+            <example>100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseProviderDataRequestModel.NetAmount">
+            <summary>
+            The amount of VAT that is applied to the net amount
+            </summary>
+            <example>24</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseProviderDataRequestModel.Amount">
+            <summary>
+            The total amount of Net amount and Tax amount
+            </summary>
+            <example>124</example>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.BaseProviderDataRequestModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.RedeemAuthenticationCodeRequestModel">
+            <summary>
+            Requests used for redeeming an authentication code
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.RedeemAuthenticationCodeRequestModel.Type">
+            <summary>
+            The type of the authorization code. Always set to "webecr"
+            </summary>
+            <example>webecr</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.RedeemAuthenticationCodeRequestModel.Code">
+            <summary>
+            The authorization code as shown by the POS and entered by the user
+            </summary>
+            <example>8413239096</example>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.RedeemAuthenticationCodeRequestModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.RefreshTokenRequestModel">
+            <summary>
+            Requests used for refreshing an access token
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.RefreshTokenRequestModel.Refresh">
+            <summary>
+            The previously acquired refresh token
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.RefreshTokenRequestModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.ECRTokenDataRequestModel">
+            <summary>
+            Requests used for the provider
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRTokenDataRequestModel.EcrId">
+            <summary>
+            The Identification code of the ECR that will generate the EcrToken field.
+            Used to lookup the appropriate MAC key for validation.Required when an ECR token based validation process is used.
+            </summary>
+            <example>ΧΧΧ99000000</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRTokenDataRequestModel.SessionKey">
+            <summary>
+            The session key used to generate the MAC, encrypted under the master key of the ECR.
+            Required when an ECR token based validation process is used.
+            </summary>
+            <example>1EB73996881AFCA537ACD78B05EB17AD</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRTokenDataRequestModel.EcrToken">
+            <summary>
+            The ECR token (MAC). Required when an ECR token based validation process is used.
+            </summary>
+            <example>D182ECE1206169E6</example>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRTokenDataRequestModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel">
+            <summary>
+            Requests used for initiating a new transaction
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.TransactionType">
+            <summary>
+            The transaction type
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.Amount">
+            <summary>
+            The transaction amount in integer form
+            </summary>
+            <example>1.00eur is 100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.TipAmount">
+            <summary>
+            The tip amount in integer from
+            </summary>
+            <example>1.00eur is 100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.CashbackAmount">
+            <summary>
+            The cashback amount in integer from
+            </summary>
+            <example>1.00eur is 100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.CurrencyCode">
+            <summary>
+            The ISO 4217 numerical currency code.
+            </summary>
+            <example>978 for EUR</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.Instalments">
+            <summary>
+            The number of instalments
+            </summary>
+            <example>0</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.IsTaxFree">
+            <summary>
+            Indicates whether the transaction is eligible to tax free regulation
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.ShouldPreloadTransaction">
+            <summary>
+            Indicates whether the transaction should be preloaded to the POS device for asynchronous execution
+            Used for cases such as restaurants, deliveries, coffee shops etc
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.PreloadExpiration">
+            <summary>
+             The expiration of a transaction that is preloaded to a
+             POS, in minutes.The field is mandatory if PreloadTransaction is true
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.IsOnBehalfCollection">
+            <summary>
+            The payee collects the transaction fund on behalf of another entity
+            Example: courier payment on delivery, food delivery platforms
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.CustomerReference">
+            <summary>
+            A called defined reference which can be used to reference the intent and eventually the transaction
+            </summary>
+            <example>"b7775c92-0be9-4005-9450-e45769e593e2</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.CustomerEmail">
+            <summary>
+            If provided and supported by the acquirer a transaction receipt will be sent to the email address
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.CustomerPhone">
+            <summary>
+            If provided and supported by the acquirer a transaction receipt will be sent to the phone
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.InitialTransaction">
+            <summary>
+            Optional for refund transaction where it references the original debit transaction
+            Required for pre-authorization completion where it references the original
+            pre-authorization transaction request
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.ProviderData">
+            <summary>
+            A data object representing the relevant data required by Greek law to accompany 
+            a provider signature based transaction request
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.ECRTokenData">
+            <summary>
+             A data object representing the relevant data required by Greek law to accompany 
+            an ECR token MAC based transaction request.
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.Timeout">
+            <summary>
+            If timeout is 0 or not present, the transaction will be initiated asynchronously. If present
+            The service will wait up to "Timeout" seconds before returning to the caller
+            Max timeout is 180s.
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.NewTransactionIntentRequestModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.ProviderDataRequestModel">
+            <summary>
+            The provider data is an object that contains the provider signature and the information needed to validate the signature as defined by the relevant Greek law.
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ProviderDataRequestModel.ProviderName">
+            <summary>
+             The name of the electronic invoicing provider. It is required for public key lookup.
+             Required when a provider signature validation process is used.
+            </summary>
+            <example>TestProvider</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ProviderDataRequestModel.Signature">
+            <summary>
+             The electronic invoicing provider signature. Required when a provider signature validation process is used.
+            </summary>
+            <example>12345</example>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ProviderDataRequestModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionVoidIntentRequestModel">
+            <summary>
+            Requests used for a creating a new transaction void intent
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentRequestModel.OriginalIntentId">
+            <summary>
+            The unique identifier of the original intent
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentRequestModel.OriginalTransactionId">
+            <summary>
+            The unique identifier of the transaction to be voided
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentRequestModel.CustomerEmail">
+            <summary>
+            If provided and supported by the acquirer, a transaction receipt will be sent to this email address
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentRequestModel.CustomerPhone">
+            <summary>
+            If provided and supported by the acquirer, a transaction receipt will be sent to this phone number
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionVoidIntentRequestModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.AccessTokenResponseModel">
+            <summary>
+            Represents an access token
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.AccessTokenResponseModel.mAccess">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.AccessTokenResponseModel.Access"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.AccessTokenResponseModel.mRefresh">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.AccessTokenResponseModel.Refresh"/> property
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.AccessTokenResponseModel.Access">
+            <summary>
+            The access token in JWT form
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.AccessTokenResponseModel.Refresh">
+            <summary>
+            The refresh token in JWT form
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.AccessTokenResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel">
+            <summary>
+            The base for all the transaction intents 
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.mCustomerReference">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.CustomerReference"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.mCustomerEmail">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.CustomerEmail"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.mCustomerPhone">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.CustomerPhone"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.mTransaction">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.Transaction"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.mInitialTransaction">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.InitialTransaction"/> property
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.Id">
+            <summary>
+            The unique identifier of the intent for the POS backend
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.Status">
+            <summary>
+            The intent status
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.Result">
+            <summary>
+            The intent result
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.TransactionType">
+            <summary>
+            The transaction type
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.Amount">
+            <summary>
+            The transaction amount in integer form
+            </summary>
+            <example>1.00eur is 100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.TipAmount">
+            <summary>
+            The tip amount integer form
+            </summary>
+            <example>1.00eur is 100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.CurrencyCode">
+            <summary>
+            The ISO 4217 numerical currency code
+            </summary>
+            <example>978 for EUR</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.Instalments">
+            <summary>
+            The number of instalments
+            </summary>
+            <example>0</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.CustomerReference">
+            <summary>
+            The caller defined reference which can be used to reference the intent and eventually the transaction
+            </summary>
+            <example>b7775c92-0be9-4005-9450-e45769e593e2</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.Terminal">
+            <summary>
+            Reference to the terminal which this intent was sent to
+            </summary>
+            <example>358154</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.CustomerEmail">
+            <summary>
+            Email that a receipt was/is going to be sent
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.CustomerPhone">
+            <summary>
+            The phone that a receipt was/is going to be sent
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.Transaction">
+            <summary>
+            Contains the transaction result details
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.InitialTransaction">
+            <summary>
+            Contains the initial transaction details
+            ONLY applicable if TransactionType = refund or pre auth completion
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.BaseTransactionIntentResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.ResultWrapper`1">
+            <summary>
+            Some calls that typically return many results are paginated. The pagination scheme is common for all paginated responses
+            </summary>
+            <typeparam name="T">The type of the results</typeparam>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.ResultWrapper`1.mNext">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.ResultWrapper`1.Next"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.ResultWrapper`1.mPrevious">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.ResultWrapper`1.Previous"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.ResultWrapper`1.mResults">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.ResultWrapper`1.Results"/> property
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ResultWrapper`1.Count">
+            <summary>
+            The total results count
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ResultWrapper`1.Next">
+            <summary>
+            URL that should be called to retrieve the next page
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ResultWrapper`1.Previous">
+            <summary>
+            URL that should be called to retrieve the previous page.
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ResultWrapper`1.Results">
+            <summary>
+            The lists that contains the actual results
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ResultWrapper`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.RedeemAuthenticationCodeResponseModel">
+            <summary>
+            Represents an authentication code
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.RedeemAuthenticationCodeResponseModel.mType">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.RedeemAuthenticationCodeResponseModel.Type"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.RedeemAuthenticationCodeResponseModel.mId">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.RedeemAuthenticationCodeResponseModel.Id"/> property
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.RedeemAuthenticationCodeResponseModel.Type">
+            <summary>
+            The type of the authorization code. Always set to "webecr"
+            </summary>
+            <example>webecr</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.RedeemAuthenticationCodeResponseModel.Id">
+            <summary>
+            The API key that should be used for all subsequent API calls for this user
+            </summary>
+            <example>Zg6xxfx_R1eXTOs39BPzqQ</example>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.RedeemAuthenticationCodeResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.RefreshTokenResponseModel">
+            <summary>
+            Represents a refresh access token
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.RefreshTokenResponseModel.mAccess">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.RefreshTokenResponseModel.Access"/> property
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.RefreshTokenResponseModel.Access">
+            <summary>
+            The access token in JWT form
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.RefreshTokenResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TerminalListResponseModel">
+            <summary>
+            Represents a collection of terminals
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TerminalListResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TerminalResponseModel">
+            <summary>
+            Represents a terminal
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TerminalResponseModel.mTerminalId">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TerminalResponseModel.TerminalId"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TerminalResponseModel.mFriendlyName">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TerminalResponseModel.FriendlyName"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TerminalResponseModel.mMerchant">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TerminalResponseModel.Merchant"/> property
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalResponseModel.Id">
+            <summary>
+            The unique identifier of the terminal for the POS backnend
+            </summary>
+            <example>358046</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalResponseModel.TerminalId">
+            <summary>
+            The terminal identifier
+            </summary>
+            <example>64999964</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalResponseModel.FriendlyName">
+            <summary>
+            Friendly name that can be set for quick reference of a POS
+            </summary>
+            <example>Test softPOS</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalResponseModel.TerminalType">
+            <summary>
+            The terminal type of the POS
+            </summary>
+            <example>100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalResponseModel.Merchant">
+            <summary>
+            Reference to the unique identifier of the acquirer of the POS
+            </summary>
+            <example>11719</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalResponseModel.Acquirer">
+            <summary>
+            Reference to the unique identifier of the acquirer of the POS
+            </summary>
+            <example>11</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalResponseModel.IsLocked">
+            <summary>
+            Indicates whether the terminal is currently locked and assigned to a specific mobile device
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TerminalResponseModel.CurrentBatchNumber">
+            <summary>
+            The current batch number of the POS
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TerminalResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.NewTransactionIntentResponseModel">
+            <summary>
+            Represents a new transaction intent
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.NewTransactionIntentResponseModel.mTransactionId">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.NewTransactionIntentResponseModel.TransactionId"/> property
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.NewTransactionIntentResponseModel.TransactionId">
+            <summary>
+            The unique transaction id required in the Greek market as mandated and defined by law
+            </summary>
+            <example>075121702285176315144</example>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.NewTransactionIntentResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionIntentListResponseModel">
+            <summary>
+            Represents a collection of transaction intents
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionIntentListResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionIntentResponseModel">
+            <summary>
+            Represents a transaction intent
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionIntentResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionListResponseModel">
+            <summary>
+            Represents a collection of transactions
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionListResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionResponseModel">
+            <summary>
+            Represents a transaction
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionResponseModel.mCardHash">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TransactionResponseModel.CardHash"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionResponseModel.mCryptogram">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TransactionResponseModel.Cryptogram"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionResponseModel.mVoucher">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TransactionResponseModel.Voucher"/> property
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.TransactionId">
+            <summary>
+            The unique identifier of the transaction for the POS backend
+            </summary>
+            <example>8091750</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.TransactionType">
+            <summary>
+            The transaction type.
+            </summary>
+            <example>0 for sale</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.Timestamp">
+            <summary>
+            The transaction completion timestamp in ISO-8601 format
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.CardPAN">
+            <summary>
+            A unique hash for the card PAN
+            </summary>
+            <example>516732******6411</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.CardHash">
+            <summary>
+            A unique hash for the card PAN
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.IsApproved">
+            <summary>
+            Indicates whether the transaction is approved
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.IsVoided">
+            <summary>
+            Indicates whether the transaction is voided
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.STAN">
+            <summary>
+            The System Trace Audit Number (STAN) of the transaction as set by the authorization system
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.BatchNumber">
+            <summary>
+            The number of the batch this transaction belongs to
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.Batch">
+            <summary>
+            The unique identifier of the batch for the POS backend.
+            May be null if the batch hasn't closed yet
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.TerminalId">
+            <summary>
+            Terminal Id of the terminal the performed the transaction
+            </summary>
+            <example>90000001</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.MerchantId">
+            <summary>
+            Merchant Id of the terminal that performed the transaction
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.Amount">
+            <summary>
+            The transaction amount in integer form
+            </summary>
+            <example>1.00eur is 100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.TipAmount">
+            <summary>
+            The transaction tip amount in integer form
+            </summary>
+            <example>1.00eur is 100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.CashbackAmount">
+            <summary>
+            The transaction cashback amount in integer form
+            </summary>
+            <example>1.00eur is 100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.LoyaltyRedemptionAmount">
+            <summary>
+            The transaction loyalty redemption amount in integer form
+            </summary>
+            <example>1.00eur is 100</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.Instalments">
+            <summary>
+            The number of instalments
+            </summary>
+            <example>0</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.POSEntryMode">
+            <summary>
+            The mode that the card was read by the POS
+            </summary>
+            <example>73</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.Cryptogram">
+            <summary>
+            The EMV transaction cryptogram (in case of chip or contact-less transaction)
+            </summary>
+            <example>2A662842E6907737</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.HostResponseCode">
+            <summary>
+            The response code of the authorization system
+            </summary>
+            <example>000</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.RetrievalReferenceNumber">
+            <summary>
+            The retrieval reference number of the authorization system
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.AuthorizationCode">
+            <summary>
+            The authorization code of the authorization system
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.OriginalRetrievalReferenceNumber">
+            <summary>
+            The RRN of the initial transaction - only applicable if TransactionType = REFUND
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.OriginalAuthorizationCode">
+            <summary>
+            The authorization code of the initial transaction - only applicable if TransactionType = REFUND
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.CurrencyCode">
+            <summary>
+            The ISO-4217 numerical currency code 
+            </summary>
+            <example>978 for EUR</example>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionResponseModel.Voucher">
+            <summary>
+            The customer defined reference used to reference the transaction in 3rd party systems
+            </summary>
+            <example>"b7775c92-0be9-4005-9450-e45769e593e2</example>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionVoidIntentListResponseModel">
+            <summary>
+            Represents a collection of transaction void intents
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionVoidIntentListResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel">
+            <summary>
+            Represents a transaction void intent
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.mCustomerEmail">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.CustomerEmail"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.mCustomerPhone">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.CustomerPhone"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.mTransaction">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.Transaction"/> property
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.mInitialTransaction">
+            <summary>
+            The member of the <see cref="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.InitialTransaction"/> property
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.Id">
+            <summary>
+            The unique identifier of the intent for the POS backend
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.Status">
+            <summary>
+            The intent status
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.Result">
+            <summary>
+            The intent result
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.Terminal">
+            <summary>
+            Reference to the terminal which this intent was sent to
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.CustomerEmail">
+            <summary>
+            Email that the receipt was/is going to be sent
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.CustomerPhone">
+            <summary>
+            Phone that a receipt was/is going to be sent
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.Transaction">
+            <summary>
+            Contains the transaction result details
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.InitialTransaction">
+            <summary>
+            Contains the initial transaction details
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionVoidIntentResponseModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonCredentials">
+            <summary>
+            Represents a set of credentials used by the common ECR-EFT POS providers
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonCredentials.Username">
+            <summary>
+            The username
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonCredentials.Password">
+            <summary>
+            The password
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonCredentials.#ctor(System.String,System.String)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonCredentials.ToAccessTokenRequestModel">
+            <summary>
+            Creates and returns a <see cref="T:ECRAndEFTPOS.Common.AccessTokenRequestModel"/> from the current <see cref="T:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonCredentials"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.CurrencyCode">
+            <summary>
+            The currency code enum format ISO 4217
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BDT">
+            <summary>
+            Bangladeshi Taka (৳)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.EUR">
+            <summary>
+            Euro (€)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.XOF">
+            <summary>
+            CFA Franc BCEAO (CFA)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BGN">
+            <summary>
+            Bulgarian Lăv (Лв.)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BAM">
+            <summary>
+            Bosnia-Herzegovina Convertible Marka (KM)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BBD">
+            <summary>
+            Barbados Dollar (Bds$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.XPF">
+            <summary>
+            CFP Franc (₣)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BMD">
+            <summary>
+            Bermudian Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BND">
+            <summary>
+            Brunei Dollar (B$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SGD">
+            <summary>
+            Singapore Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BOB">
+            <summary>
+            Boliviano (Bs)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BHD">
+            <summary>
+            Bahraini Dinar (د.ب)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BIF">
+            <summary>
+            Burundian Franc (FBu)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BTN">
+            <summary>
+            Bhutanese Ngultrum (Nu.)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.JMD">
+            <summary>
+            Jamaican Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.NOK">
+            <summary>
+            Norwegian Krone (kr)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BWP">
+            <summary>
+            Botswana Pula (P)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.WST">
+            <summary>
+            Samoan Tālā (SAT)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.USD">
+            <summary>
+            US Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BRL">
+            <summary>
+            Brazilian Real (R$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BSD">
+            <summary>
+            Bahamian Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.GBP">
+            <summary>
+            Pound Sterling (£)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BYN">
+            <summary>
+            Belarussian Ruble (BYN)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BZD">
+            <summary>
+            Belize Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.RUB">
+            <summary>
+            Russian Ruble (₽)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.RWF">
+            <summary>
+            Rwandan Franc (R₣)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.RSD">
+            <summary>
+            Serbian Dinar (din)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.TMT">
+            <summary>
+            Turkmenistani Manat (T)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.TJS">
+            <summary>
+            Tajikistani Somoni (ЅM)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.RON">
+            <summary>
+            Romanian Leu (lei)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.NZD">
+            <summary>
+            New Zealand Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.GTQ">
+            <summary>
+            Guatemalan Quetzal (Q)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.XAF">
+            <summary>
+            CFA Franc BEAC (FCFA)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.JPY">
+            <summary>
+            Japanese Yen (¥)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.GYD">
+            <summary>
+            Guyanese Dollar (G$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.GEL">
+            <summary>
+            Georgian Lari (ლ)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.XCD">
+            <summary>
+            East Caribbean Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.GNF">
+            <summary>
+            Guinean Franc (FG)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.GMD">
+            <summary>
+            Gambian Dalasi (D)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.DKK">
+            <summary>
+            Danish Krone (Kr.)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.GIP">
+            <summary>
+            Gibraltar Pound (£)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.GHS">
+            <summary>
+            Ghanaian Cedi (GH₵)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.OMR">
+            <summary>
+            Omani Rial (ر.ع.)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.TND">
+            <summary>
+            Tunisian Dinar (د.ت)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.JOD">
+            <summary>
+            Jordanian Dinar (د.ا)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.HRK">
+            <summary>
+            Croatian Kuna (kn)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.HTG">
+            <summary>
+            Haitian Gourde (G)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.HUF">
+            <summary>
+            Hungarian Forint (Ft)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.HKD">
+            <summary>
+            Hong Kong Dollar (HK$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.HNL">
+            <summary>
+            Honduran Lempira (L)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.AUD">
+            <summary>
+            Australian Dollar (A$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.VEF">
+            <summary>
+            Venezuelan Bolivar (VEF)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.ILS">
+            <summary>
+            Israeli New Sheqel (₪)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.PYG">
+            <summary>
+            Paraguayan Guarani (₲)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.IQD">
+            <summary>
+            Iraqi Dinar (ع.د)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.PAB">
+            <summary>
+            Panamanian Balboa (B/.)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.PGK">
+            <summary>
+            Papua New Guinean Kina (K)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.PEN">
+            <summary>
+            Peruvian Nuevo Sol (S/)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.PKR">
+            <summary>
+            Pakistani Rupee (₨)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.PHP">
+            <summary>
+            Philippine Peso (₱)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.PLN">
+            <summary>
+            Polish Zloty (zł)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.ZMW">
+            <summary>
+            Zambian Kwacha (ZK)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MAD">
+            <summary>
+            Moroccan Dirham (MAD)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.EGP">
+            <summary>
+            Egyptian Pound (E£)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.ZAR">
+            <summary>
+            South African Rand (R)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.VND">
+            <summary>
+            Vietnamese Dong (₫)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SBD">
+            <summary>
+            Solomon Islands Dollar (Si$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.ETB">
+            <summary>
+            Ethiopian Birr (ብር)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SOS">
+            <summary>
+            Somali Shilling (Sh.so.)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SAR">
+            <summary>
+            Saudi Riyal (ر.س)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.ERN">
+            <summary>
+            Eritrean Nakfa (نافكا)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MDL">
+            <summary>
+            Moldovan Leu (L)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MGA">
+            <summary>
+            Malagasy Ariary (Ar)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.UZS">
+            <summary>
+            Uzbekistan Som (so'm)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MMK">
+            <summary>
+            Myanmar Kyat (K)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MOP">
+            <summary>
+            Macanese Pataca (MOP$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MNT">
+            <summary>
+            Mongolian Tögrög (₮)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MKD">
+            <summary>
+            Macedonian Denar (Ден)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MUR">
+            <summary>
+            Mauritian Rupee (₨)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MWK">
+            <summary>
+            Malawian Kwacha (MK)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MVR">
+            <summary>
+            Maldivian Rufiyaa (Rf)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MRO">
+            <summary>
+            Mauritanian Ouguiya (UM)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.UGX">
+            <summary>
+            Ugandan Shilling (USh)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.TZS">
+            <summary>
+            Tanzanian Shilling (TSh)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MYR">
+            <summary>
+            Malaysian Ringgit (RM)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MXN">
+            <summary>
+            Mexican Peso (Mex$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SHP">
+            <summary>
+            Saint Helena Pound (£)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.FJD">
+            <summary>
+            Fiji Dollar (FJ$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.FKP">
+            <summary>
+            Falkland Islands Pound (£)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.NIO">
+            <summary>
+            Nicaraguan Córdoba (C$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.NAD">
+            <summary>
+            Namibian Dollar (N$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.VUV">
+            <summary>
+            Vanuatu Vatu (VT)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.NGN">
+            <summary>
+            Nigerian Naira (₦)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.NPR">
+            <summary>
+            Nepalese Rupee (रू)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CHF">
+            <summary>
+            Swiss Franc (Fr.)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.COP">
+            <summary>
+            Colombian Peso ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CNY">
+            <summary>
+            Chinese Yuan (¥)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CNH">
+            <summary>
+            Chinese Yuan Renminbi (¥)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CLP">
+            <summary>
+            Chilean Peso ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CAD">
+            <summary>
+            Canadian Dollar (CAD $)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CDF">
+            <summary>
+            Congolese Franc (FC)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CZK">
+            <summary>
+            Czech Koruna (CZK)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CRC">
+            <summary>
+            Costa Rican Colon (₡)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.ANG">
+            <summary>
+            Netherlands Antillean Guilder (NAƒ)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CVE">
+            <summary>
+            Cape Verde Escudo ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CUC">
+            <summary>
+            Cuban Convertible Peso (CUC)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.CUP">
+            <summary>
+            Cuban Peso ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SZL">
+            <summary>
+            Swazi Lilangeni (E)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SYP">
+            <summary>
+            Syrian Pound (£S)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.KGS">
+            <summary>
+            Kyrgyzstani Som (Лв)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.KES">
+            <summary>
+            Kenyan Shilling (Ksh)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SSP">
+            <summary>
+            South Sudanese Pound (£)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SRD">
+            <summary>
+            Surinamese Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.KHR">
+            <summary>
+            Cambodian Riel (៛)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.KMF">
+            <summary>
+            Comoro Franc (CF)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.STD">
+            <summary>
+            Sao Tomean Dobra (Db)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.KRW">
+            <summary>
+            South Korean Won (₩)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.KPW">
+            <summary>
+            North Korean Won (₩)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.KWD">
+            <summary>
+            Kuwaiti Dinar (د.ك)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SLL">
+            <summary>
+            Sierra Leonean Leone (Le)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SCR">
+            <summary>
+            Seychelles Rupee (SR)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.KZT">
+            <summary>
+            Kazakhstani Tenge (₸)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.KYD">
+            <summary>
+            Cayman Islands Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SEK">
+            <summary>
+            Swedish Krona (kr)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.SDG">
+            <summary>
+            Sudanese Pound (ج.س.)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.DOP">
+            <summary>
+            Dominican Peso ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.DJF">
+            <summary>
+            Djiboutian Franc (Fdj)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.YER">
+            <summary>
+            Yemeni Rial (﷼)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.DZD">
+            <summary>
+            Algerian Dinar (دج)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.UYU">
+            <summary>
+            Uruguayan Peso ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.LBP">
+            <summary>
+            Lebanese Pound (ل.ل.)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.LAK">
+            <summary>
+            Lao Kip (₭)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.TWD">
+            <summary>
+            New Taiwan Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.TTD">
+            <summary>
+            Trinidad and Tobago Dollar ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.TRY">
+            <summary>
+            Turkish Lira (₺)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.LKR">
+            <summary>
+            Sri Lankan Rupee (රු)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.TOP">
+            <summary>
+            Tongan paʻanga (T$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.LRD">
+            <summary>
+            Liberian Dollar (L$)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.LSL">
+            <summary>
+            Lesotho Loti (M)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.THB">
+            <summary>
+            Thai Baht (฿)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.LYD">
+            <summary>
+            Libyan Dinar (ل.د)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.AED">
+            <summary>
+            UAE Dirham (د.إ)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.AFN">
+            <summary>
+            Afghan Afghani (؋)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.ISK">
+            <summary>
+            Icelandic Króna (kr)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.IRR">
+            <summary>
+            Iranian Rial (﷼)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.AMD">
+            <summary>
+            Armenian Dram (֏)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.ALL">
+            <summary>
+            Albanian Lek (L)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.AOA">
+            <summary>
+            Angolan Kwanza (Kz)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.ARS">
+            <summary>
+            Argentine Peso ($)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.BYR">
+            <summary>
+            Belarusian Rouble (BYN)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.INR">
+            <summary>
+            Indian Rupee (₹)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.UAH">
+            <summary>
+            Ukrainian Hryvnia (₴)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.AWG">
+            <summary>
+            Aruban Florin (ƒ)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.AZN">
+            <summary>
+            Azerbaijani Manat (₼)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.IDR">
+            <summary>
+            Indonesian Rupiah (Rp)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.QAR">
+            <summary>
+            Qatari Rial (ر.ق)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.CurrencyCode.MZN">
+            <summary>
+            Mozambican Metical (MT)
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.IntentResult">
+            <summary>
+            Provides enumeration over the intents results
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentResult.Approved">
+            <summary>
+            The transaction has been completed and approved by the authorization system
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentResult.Declined">
+            <summary>
+            The transaction has been completed and declined by the authorization system
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentResult.Cancelled">
+            <summary>
+            The transaction has been canceled by the POS user before reaching completion
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentResult.Failed">
+            <summary>
+            The transaction has failed to complete
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentResult.Unknown">
+            <summary>
+             The transaction result is unknown. 
+             Only possible if the device hasn't responded with results
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentResult.Busy">
+            <summary>
+             The transaction has failed because the POS is currently unavailable for transactions (either processing another transaction or under maintenance)
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentResult.MaxTransactions">
+            <summary>
+             The POS device has reached its transaction limit for the specific batch. 
+             Batch closing should be performed on the device before continuing transactions
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.IntentStatus">
+            <summary>
+            Provides enumeration over the intent status
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentStatus.Pending">
+            <summary>
+            Intent has been registered to the backend and is pending to be sent to the device
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentStatus.Sent">
+            <summary>
+            Intent has been registered to the backend and is pending to be sent to the device
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.IntentStatus.Completed">
+            <summary>
+            Intent has been successfully completed by the device and has registered the results
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionType">
+            <summary>
+            Provides enumeration over the transaction types
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionType.Sale">
+            <summary>
+            Sale
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionType.Refund">
+            <summary>
+            Refund
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionType.PreAuthorisation">
+            <summary>
+            Pre-authorisation
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionType.PreAutorisationCompletion">
+            <summary>
+            Pre-authorisation completion
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionType.CashAdvance">
+            <summary>
+            Cash advance
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionType.CardPayment">
+            <summary>
+            Card payment
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionType.BillPayment">
+            <summary>
+            Bill payment
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionType.OtherPayment">
+            <summary>
+            Other payment
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.TransactionType.PrePayment">
+            <summary>
+            Pre payment
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonConstants">
+            <summary>
+            Constants related to the ECRAndEFTPOSCommonConstants clients
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonConstants.TransactionTypeToIntMapper">
+            <summary>
+            Maps the <see cref="T:ECRAndEFTPOS.Common.TransactionType"/>s to their related <see cref="T:System.Int32"/>s
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonConstants.CurrencyCodeToIntMapper">
+            <summary>
+            Maps the <see cref="T:ECRAndEFTPOS.Common.CurrencyCode"/>s to their related <see cref="T:System.String"/>s
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonConstants.IntentResultToIntMapper">
+            <summary>
+            Maps the <see cref="T:ECRAndEFTPOS.Common.IntentResult"/>s to their related <see cref="T:System.String"/>s
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonConstants.IntentStatusToIntMapper">
+            <summary>
+            Maps the <see cref="T:ECRAndEFTPOS.Common.IntentStatus"/>es to their related <see cref="T:System.Int32"/>s
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonConstants.ErrorTypeToIntMapper">
+            <summary>
+            maps the <see cref="T:ECRAndEFTPOS.ErrorType"/>s to their related <see cref="T:System.Int32"/>s
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes">
+            <summary>
+            The API routes for the ECR and EFT POS common
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.ProductionRoute">
+            <summary>
+            The production base route
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.TestRoute">
+            <summary>
+            The test/staging route
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.GetAccessTokenRoute(System.String)">
+            <summary>
+            The access token route
+            </summary>
+            <param name="baseRoute">The base route</param>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.GetRefreshAccessTokenRoute(System.String)">
+            <summary>
+            The refresh access token route
+            </summary>
+            <param name="baseRoute">The base route</param>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.GetAuthenticationCodeRoute(System.String)">
+            <summary>
+            The redeem authentication code route
+            </summary>
+            <param name="baseRoute">The base route</param>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.GetTerminalListRoute(System.String)">
+            <summary>
+            The endpoint is used to retrieve a list of all the terminals that are available to the user.
+            It can be used as a first step to search for a specific terminal by its name, merchant or type and retrieve its terminalId for further processing
+            </summary>
+            <param name="baseRoute">The base route</param>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.GetNewTransactionIntentRoute(System.String,System.Int32)">
+            <summary>
+            The endpoint is used to start a new transaction by creating an intent.
+            </summary>
+            <param name="terminalId">The terminal id</param>
+            <param name="baseRoute">The base route</param>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.GetTransactionVoidIntentRoute(System.String,System.Int32)">
+            <summary>
+            The following endpoint is used to start a new intent to void a transaction. The caller needs to reference the transaction 
+            that needs to be voided and has the ability to either reference it via the original transaction intent,or the transaction terminalId.
+            Both values can be obtained either by the response of the original successful intent, or by querying the intent or transaction endpoints.
+            </summary>
+            <param name="terminalId">The terminal id</param>
+            <param name="baseRoute">The base route</param>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.GetTransactionIntentListRoute(System.String)">
+            <summary>
+            The endpoint is used to list all transaction intents that have been created and accessible to the user. 
+            It should be used if the "start transaction intent" call has timed out or was async in order to resolve the final status of a specific intent
+            </summary>
+            <param name="baseRoute">The base route</param>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonRoutes.GetTransactionListRoute(System.String)">
+            <summary>
+            The endpoint is used to list all transaction intents that have been created and accessible to the user. 
+            It should be used if the "start transaction intent" call has timed out or was async in order to resolve the final status of a specific intent
+            </summary>
+            <param name="baseRoute">The base route</param>
+            <returns></returns>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.BaseEnumToIntJsonConverter`1">
+            <summary>
+            The base for all the <see cref="T:Newtonsoft.Json.JsonConverter`1"/>s that are used for converting between an <see cref="T:System.Enum"/> and a <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.BaseEnumToIntJsonConverter`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.BaseEnumToStringJsonConverter`1">
+            <summary>
+            The base for all the <see cref="T:Newtonsoft.Json.JsonConverter`1"/>s that are used for converting between an <see cref="T:System.Enum"/> and a <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.BaseEnumToStringJsonConverter`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.BaseEnumToValueJsonConverter`3">
+            <summary>
+            The base for all the enum to value json converters
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.BaseEnumToValueJsonConverter`3.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.BaseEnumToValueJsonConverter`3.ReadJson(Newtonsoft.Json.JsonReader,System.Type,`0,System.Boolean,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.BaseEnumToValueJsonConverter`3.WriteJson(Newtonsoft.Json.JsonWriter,`0,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/> 
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.BaseEnumToValueJsonConverter`3.GetMapper">
+            <summary>
+            Gets a <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2"/> that maps the values of the <typeparamref name="T"/>
+            to <see cref="T:System.String"/>s
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.CurrencyCodeToIntJsonConverter">
+            <summary>
+            A <see cref="T:ECRAndEFTPOS.Common.BaseEnumToStringJsonConverter`1"/> that is used for converting a <see cref="T:ECRAndEFTPOS.Common.CurrencyCode"/> to <see cref="T:System.Int32"/>
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.CurrencyCodeToIntJsonConverter.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.CurrencyCodeToIntJsonConverter.GetMapper">
+            <inheritdoc/>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.IntentResultToIntJsonConverter">
+            <summary>
+            A <see cref="T:ECRAndEFTPOS.Common.BaseEnumToIntJsonConverter`1"/> that is used to convert an <see cref="T:ECRAndEFTPOS.Common.IntentResult"/> to <see cref="T:System.Int32"/>
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.IntentResultToIntJsonConverter.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.IntentResultToIntJsonConverter.GetMapper">
+            <inheritdoc/>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.IntentStatusToIntJsonConverter">
+            <summary>
+            A <see cref="T:ECRAndEFTPOS.Common.BaseEnumToIntJsonConverter`1"/> that is used to convert an <see cref="T:ECRAndEFTPOS.Common.IntentStatus"/> to <see cref="T:System.Int32"/>
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.IntentStatusToIntJsonConverter.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.IntentStatusToIntJsonConverter.GetMapper">
+            <inheritdoc/>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.TransactionTypeToIntJsonConverter">
+            <summary>
+            A <see cref="T:ECRAndEFTPOS.Common.BaseEnumToStringJsonConverter`1"/> that is used to convert a <see cref="T:ECRAndEFTPOS.Common.TransactionType"/> to <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionTypeToIntJsonConverter.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.TransactionTypeToIntJsonConverter.GetMapper">
+            <inheritdoc/>
+        </member>
+        <member name="T:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient">
+            <summary>
+            An agent that's capable of making requests to the ECR and EFT POS API
+            </summary>
+        </member>
+        <member name="F:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.mLogInInformation">
+            <summary>
+            The log in information provided by the <see cref="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.LogInAsync"/> method
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.Client">
+            <summary>
+            The client
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.Credentials">
+            <summary>
+            The credentials
+            </summary>
+        </member>
+        <member name="P:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.BaseRoute">
+            <summary>
+            The base route
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.#ctor(ECRAndEFTPOS.Common.ECRAndEFTPOSCommonCredentials,System.Boolean)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.LogInAsync">
+            <summary>
+            Executes a log in operation and returns credentials that can be used for accessing the rest end points
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.GetTerminalsAsync(ECRAndEFTPOS.Common.TerminalAPIArgs)">
+            <summary>
+            Gets the terminals
+            </summary>
+            <param name="args">The arguments</param>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.GetTerminalsListAsync">
+            <summary>
+            Gets the terminal list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.CreateTransactionIntentAsync(System.Int32,ECRAndEFTPOS.Common.NewTransactionIntentRequestModel)">
+            <summary>
+            Creates a transaction intent using the terminal with the specified <paramref name="terminalId"/>
+            </summary>
+            <param name="terminalId">The terminal id</param>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.GetTransactionIntentsAsync(ECRAndEFTPOS.Common.TransactionIntentAPIArgs)">
+            <summary>
+            Gets the transaction intents
+            </summary>
+            <param name="args">The arguments</param>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.GetTransactionIntentListAsync">
+            <summary>
+            Gets the transaction intent list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.GetTransactionVoidIntentsAsync(System.Int32,ECRAndEFTPOS.Common.TransactionIntentAPIArgs)">
+            <summary>
+            Gets the transaction void intents
+            </summary>
+            <param name="terminalId">The terminal id</param>
+            <param name="args">The arguments</param>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.GetTransactionVoidIntentListAsync(System.Int32)">
+            <summary>
+            Gets the transaction void intent list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ECRAndEFTPOS.Common.ECRAndEFTPOSCommonClient.ExecuteAsync``1(System.Func{ECRAndEFTPOS.Common.AccessTokenResponseModel,System.Threading.Tasks.Task{ECRAndEFTPOS.WebRequestResult{``0}}})">
+            <summary>
+            Executes the specified <paramref name="action"/> after ensuring that a valid JWT has been retrieved.
+            </summary>
+            <typeparam name="T">The type of the result.</typeparam>
+            <param name="action">The action.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
